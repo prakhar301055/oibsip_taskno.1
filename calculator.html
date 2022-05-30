@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" style="background-image: linear-gradient(30deg,#be7676,#8ec18e,#8984e4);height: 100vh;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .parent-grid{
+            display:grid;
+            grid-template-columns: auto auto auto;
+            background-color: #7949c1;
+            width:100%;
+            height: 50vh;
+        }
+        .childgrid{
+            background-color: #b39ddb;
+            /* width:auto;
+            height: 20px; */
+            border: 2px solid;
+            border-radius: 5px;
+            margin: 9px;
+            text-align: center;
+            padding-top: 13px;
+            font-size:23px ;
+
+        }
+        .calc{
+           background-color: blueviolet;
+           display:flex;
+           width: 30%;
+           margin-top: 7%;
+           margin-left: 34%;
+           border: 2px white;
+           border-radius: 10px;
+
+           flex-direction: column;
+        }
+        #ans{background-color: #562e91;
+        width:100%;
+        height: 20vh;
+        border: 2px white;
+           border-radius: 10px;
+           font-size: 30px;
+             
+        }
+        #exp{
+            color: white;
+            font-size: 30px;
+            text-align :right;
+        }
+        #total{
+            color: white;
+            font-size: 30px;
+            text-align :right;
+        }
+    </style>
+    <script>
+   
+         let ans=0;
+         let exp="";
+      let tot;
+         function getans(x){
+             exp=exp+x;
+            
+        document.getElementById("exp").innerHTML=exp;
+         }
+         function gettotal(){
+             tot=eval(exp);
+             document.getElementById("total").innerHTML=tot;
+         }
+         function reset(){
+             exp="";
+             tot=0;
+             document.getElementById("exp").innerHTML="";
+             document.getElementById("total").innerHTML=tot;
+
+         }
+
+    </script>
+</head>
+<body>
+    <div class="calc">
+        <div id="ans">
+            <h id="exp"></h><br>
+            <h id="total"> </h>
+        </div>
+    <div class="parent-grid">
+        <button  class="childgrid" onclick="getans(1)" >1</button>
+        <div  class="childgrid" onclick="getans(2)">2</div>   
+        <div  class="childgrid" onclick="getans(3)">3</div> 
+          <div  class="childgrid" onclick="getans(4)">4</div>  
+           <div  class="childgrid" onclick="getans(5)">5</div>
+           <div  class="childgrid"onclick="getans(6)">6</div>
+           <div  class="childgrid"onclick="getans(7)">7</div>
+           <div  class="childgrid"onclick="getans(8)">8</div>
+           <div  class="childgrid"onclick="getans(9)">9</div>
+           <div  class="childgrid"onclick="getans('.')">.</div>
+           <div  class="childgrid"onclick="getans(0)">0</div>
+           <div  class="childgrid">del</div>
+           <div  class="childgrid" onclick="getans('+')">+</div>
+           <div  class="childgrid"onclick="getans('-')">-</div>
+           <div  class="childgrid"onclick="getans('*')">*</div>
+           
+           <div  class="childgrid"onclick="getans('/')">/</div>
+           <div  class="childgrid" onclick="reset()">Reset</div>
+           <div  class="childgrid" onclick="gettotal()">=</div>
+           
+
+    </div>
+</div>
+</body>
+</html>
